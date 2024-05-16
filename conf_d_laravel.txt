@@ -1,0 +1,29 @@
+<Directory /var/www/dev/dai-ichi-denka-be/public>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+Alias /dev/dai-ichi-denka-be /var/www/dev/dai-ichi-denka-be/public
+
+<Directory /var/www/html/dev/project2/public>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+Alias /dev/project2 /var/www/html/dev/project2/public
+
+==============================================
+<VirtualHost *:80>
+    ServerName corp-site-be.com
+    DocumentRoot /var/www/corp_site_be/public
+
+    <Directory /var/www/corp_site_be/public>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/httpd/your-laravel-error.log
+    CustomLog /var/log/httpd/your-laravel-access.log combined
+</VirtualHost>
