@@ -1,0 +1,6 @@
+pm2 list: Lists all running processes managed by PM2.
+pm2 stop <name or id>: Stops a specific process.
+pm2 restart <name or id>: Restarts a specific process.
+pm2 delete <name or id>: Deletes a specific process from PM2.
+pm2 logs: Shows logs for all processes.
+pm2 monit: Monitor CPU and memory usage of all processes.
