@@ -1,0 +1,35 @@
+<VirtualHost *:80>
+    ServerName 3.106.83.230
+    ServerAlias 3.106.83.230
+
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyVia Full
+
+    <Proxy *>
+        Require all granted
+    </Proxy>
+
+    # Exclude Laravel backend from being proxied
+    ProxyPass /dev/dai-ichi-be !
+
+    # Proxy Next.js app
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+
+    # Serve Laravel app
+    Alias /dev/dai-ichi-be /var/www/dev/dai-ichi-denka-be/public
+
+    <Directory /var/www/dev/dai-ichi-denka-be/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+
+     # Ensure Laravel routes are handled correctly
+    <Location /dev/dai-ichi-be>
+        RewriteEngine On
+       # RewriteRule ^/dev/dai-ichi-be/(.*)$ /$1 [PT,L]
+    </Location>
+
+</VirtualHost>
