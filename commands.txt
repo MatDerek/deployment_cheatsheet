@@ -1,7 +1,7 @@
 //permissions
 sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be
 sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be/storage
-
+sudo chmod -R 755 /var/www/dev/mtech-labs-be
 sudo chmod -R 775 /var/www/dev/mtech-labs-be 
 
 //install php
