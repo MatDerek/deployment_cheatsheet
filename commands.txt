@@ -1,6 +1,7 @@
 //permissions
 sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be
 sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be/storage
+sudo chown -R apache:apache /var/www/stg/mtech-labs-be/storage //optional
 sudo chmod -R 755 /var/www/dev/mtech-labs-be
 sudo chmod -R 775 /var/www/dev/mtech-labs-be 
 
