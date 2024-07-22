@@ -1,0 +1,11 @@
+# SETUP
+sudo yum install cronie
+sudo systemctl start crond
+sudo systemctl enable crond
+sudo crontab -e -u apache | crontab -e
+
+# open cron tabs
+crontab -e
+
+# add entry
+* * * * * /usr/bin/php /path/to/your/app/artisan schedule:run >> /dev/null 2>&1

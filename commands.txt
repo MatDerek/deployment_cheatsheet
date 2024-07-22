@@ -19,6 +19,9 @@ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=compose
 
 //httpd
 sudo systemctl restart httpd
+sudo apachectl configtest
+sudo systemctl status httpd
+
 
 //general
 sudo reboot
