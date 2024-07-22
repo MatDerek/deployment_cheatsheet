@@ -1,6 +1,9 @@
 //permissions
-sudo chown -R apache:apache /var/www/dev/dai-ichi-denka-be
-sudo chmod -R 775 /var/www/dev/dai-ichi-denka-be 
+sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be
+sudo chown -R $USER:$USER /var/www/dev/mtech-labs-be/storage
+sudo chown -R apache:apache /var/www/stg/mtech-labs-be/storage //optional
+sudo chmod -R 755 /var/www/dev/mtech-labs-be
+sudo chmod -R 775 /var/www/dev/mtech-labs-be 
 
 //install php
 sudo apt update
@@ -25,3 +28,6 @@ sudo systemctl status httpd
 
 //general
 sudo reboot
+
+//kill port
+kill -9 $(lsof -i:3000 -t)

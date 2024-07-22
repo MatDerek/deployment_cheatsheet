@@ -33,7 +33,18 @@ sudo vi /etc/my.cnf
 [mysqld]
 bind-address = 0.0.0.0
 
-sudo service mysqld restart
+// if unable to connect localhost error
+// check port if allowed already
+sudo firewall-cmd --list-all
+//if not
+sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
+sudo firewall-cmd --reload
+sudo systemctl restart mysqld
+
+//verify
+sudo netstat -plnt | grep mysqld
+
+
 
 
 
