@@ -1,0 +1,10 @@
+sudo useradd -m newuser
+sudo passwd newuser  (optional)
+sudo mkdir -p /home/newuser/.ssh
+sudo chmod 700 /home/newuser/.ssh
+
+add SSH PUB KEY
+echo "ssh-rsa AAAAB3... user@hostname" | sudo tee -a /home/newuser/.ssh/authorized_keys
+sudo chmod 600 /home/newuser/.ssh/authorized_keys
+sudo chown -R newuser:newuser /home/newuser/.ssh
+
