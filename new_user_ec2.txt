@@ -8,3 +8,10 @@ echo "ssh-rsa AAAAB3... user@hostname" | sudo tee -a /home/newuser/.ssh/authoriz
 sudo chmod 600 /home/newuser/.ssh/authorized_keys
 sudo chown -R newuser:newuser /home/newuser/.ssh
 
+//add user to sudoer
+// Amazon Linux 2023 uses wheel  group
+sudo usermod -aG wheel newuser
+
+//Verify sudo account
+su - newusername
+
