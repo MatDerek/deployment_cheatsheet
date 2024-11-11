@@ -1,6 +1,7 @@
 npm install -g pm2
 
 pm2 start npm --name "my-app" -- run start
+pm2 startup
 pm2 list: Lists all running processes managed by PM2.
 pm2 stop <name or id>: Stops a specific process.
 pm2 restart <name or id>: Restarts a specific process.
