@@ -34,3 +34,7 @@ numprocs=1
 redirect_stderr=true
 stdout_logfile=/var/www/nishispo-be/worker.log
 stopwaitsecs=3600
+
+# If Facing Authentication Error add this on supervisor.conf
+[inet_http_server]
+port=127.0.0.1:9001
