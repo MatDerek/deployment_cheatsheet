@@ -1,17 +1,8 @@
-sudo useradd -m newuser
-sudo passwd newuser  (optional)
-sudo mkdir -p /home/newuser/.ssh
-sudo chmod 700 /home/newuser/.ssh
-
-add SSH PUB KEY
-echo "ssh-rsa AAAAB3... user@hostname" | sudo tee -a /home/newuser/.ssh/authorized_keys
-sudo chmod 600 /home/newuser/.ssh/authorized_keys
-sudo chown -R newuser:newuser /home/newuser/.ssh
-
-//add user to sudoer
-// Amazon Linux 2023 uses wheel  group
-sudo usermod -aG wheel newuser
-
-//Verify sudo account
-su - newusername
-
+sudo adduser devs
+sudo usermod -aG sudo devs
+su - devs
+sudo mkdir -p /home/devs/.ssh
+sudo chmod 700 /home/devs/.ssh
+sudo cp /home/ubuntu/.ssh/authorized_keys /home/devs/.ssh/
+sudo chmod 600 /home/devs/.ssh/authorized_keys
+sudo chown -R devs:devs /home/devs/.ssh

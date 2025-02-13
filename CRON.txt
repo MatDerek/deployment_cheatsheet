@@ -10,8 +10,31 @@ crontab -e
 # add entry
 * * * * * /usr/bin/php /path/to/your/app/artisan schedule:run >> /dev/null 2>&1
 
-
 #
 sudo supervisord -c /etc/supervisord.conf
 sudo supervisorctl restart all
 sudo supervisorctl restart <program_name>
+
+
+#OPTIONALS
+open supervisor.conf
+- find [unix_http_server]
+- add username and password
+- find [supervisorctl]
+- add the username and password
+
+#Sample CONFIG if running docker
+[program:nishispo-worker]
+process_name=%(program_name)s
+command=docker exec nishispo-container php /var/www/artisan queue:work --sleep=3 --tries=3
+autostart=true
+autorestart=true
+user=ubuntu
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/var/www/nishispo-be/worker.log
+stopwaitsecs=3600
+
+# If Facing Authentication Error add this on supervisor.conf
+[inet_http_server]
+port=127.0.0.1:9001
